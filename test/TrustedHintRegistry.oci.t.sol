@@ -95,4 +95,22 @@ contract OCITest is Test, Events {
         bool result = registry.isTrustedIssuer(address(2), ATP_SCHEMA, DID);
         assertEq(result, false);
     }
+
+    function test_IsTrustedIssuer_False_ListRevoked() public {
+        address namespace = address(1);
+        bytes32 list = keccak256(abi.encodePacked(ATP_SCHEMA));
+        bytes32 key = keccak256(abi.encodePacked(DID));
+
+        vm.startPrank(namespace);
+        registry.setHint(namespace, list, key, BYTES32_TRUE);
+
+        bool resultBefore = registry.isTrustedIssuer(namespace, ATP_SCHEMA, DID);
+        assertEq(resultBefore, true);
+
+        // Revoke list
+        registry.setListStatus(namespace, list, true);
+
+        bool resultAfter = registry.isTrustedIssuer(namespace, ATP_SCHEMA, DID);
+        assertEq(resultAfter, false);
+    }
 }
