@@ -35,7 +35,7 @@ contract TrustedHintRegistry is Initializable, EIP712Upgradeable, PausableUpgrad
         VERSION_MINOR = "0";
         VERSION_PATCH = "0";
         VERSION_DELIMITER = ".";
-        __EIP712_init("TrustedHintRegistry", version());
+        __EIP712_init("OCITrustedHintRegistry", version());
     }
 
     /**
