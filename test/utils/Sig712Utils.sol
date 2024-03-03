@@ -94,7 +94,7 @@ contract Sig712Utils {
         DOMAIN_SEPARATOR = keccak256(abi.encode(
             0x8b73c3c69bb8fe3d512ecc4cf759cc79239f7b179b0ffacaa9a75d522b39400f,
             // = keccak256("EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)")
-            keccak256("OCITrustedHintRegistry"),
+            keccak256("TrustedHintRegistry"),
             keccak256(bytes(_contractVersion)),
             block.chainid,
             address(_contractAddress)

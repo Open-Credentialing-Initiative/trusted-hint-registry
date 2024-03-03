@@ -21,7 +21,7 @@ contract ProxyTest is Test {
 
         assertEq(wrappedProxy.version(), "1.0.0");
         assertEq(verifyingContract, address(proxy));
-        assertEq(name, "OCITrustedHintRegistry");
+        assertEq(name, "TrustedHintRegistry");
         assertEq(version, "1.0.0");
     }
 
@@ -36,7 +36,7 @@ contract ProxyTest is Test {
 
         assertEq(wrappedProxy.version(), "1.0.0");
         assertEq(verifyingContract, address(proxy));
-        assertEq(name, "OCITrustedHintRegistry");
+        assertEq(name, "TrustedHintRegistry");
         assertEq(version, "1.0.0");
 
         console.log("version: %s", wrappedProxy.version());
